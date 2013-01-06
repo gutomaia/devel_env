@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$#" -eq 5 ]; then
+	P_NAME="$1"
+	P_FILE="$2"
+	P_INSTALL_DIR="$3"
+	DEVEL_HOME="$4"
+	DOWNLOAD_PATH="$5"
+
+
+	mkdir $DEVEL_HOME/$P_INSTALL_DIR
+	echo criando $DEVEL_HOME/$P_INSTALL_DIR
+	PATH=$PATH:$DEVEL_HOME/node
+
+	export PATH
+	cd $DEVEL_HOME/$P_INSTALL_DIR && sh $DOWNLOAD_PATH/$P_FILE
+	
+	#TODO fix
+	mv $DEVEL_HOME/bin $DEVEL_HOME/$P_INSTALL_DIR
+	mv $DEVEL_HOME/lib $DEVEL_HOME/$P_INSTALL_DIR
+	
+fi
