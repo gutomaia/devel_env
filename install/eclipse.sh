@@ -14,7 +14,11 @@ if [ "$#" -eq 5 ]; then
 	$DEVEL_HOME/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.m2e.feature.feature.group -nosplash
 	#install git plugin
 	$DEVEL_HOME/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.egit.feature.group -nosplash
-	
+	#install git issues plugin
+	$DEVEL_HOME/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.mylyn.github.feature.feature.group -nosplash
+	#install infinitest plugin
+	$DEVEL_HOME/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository http://infinitest.github.com -installIU org.infinitest.eclipse.feature.feature.group -nosplash
+
 	if [ -f $DEVEL_HOME/android ]; then
 		#install android adt plugin
 		$DEVEL_HOME/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository https://dl-ssl.google.com/android/eclipse -installIU com.android.ide.eclipse.adt.feature.group -nosplash
